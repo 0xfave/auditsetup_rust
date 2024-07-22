@@ -1,0 +1,77 @@
+base_dir = "/path/to/your/folder/to/git_clone_the_repos"
+
+[env]
+eth_rpc_url = "https://eth-mainnet.g.alchemy.com/v2/YourAlchemyKey"
+arbitrum_rpc = "https://arb-mainnet.g.alchemy.com/v2/YourAlchemyKey"
+private_key = "YourPrivateKey"
+etherscan_api_key = "YourEtherscanApiKey"
+tenderly_dev_net_rpc_url = "https://api.tenderly.co/api/v1/account/username/project/project/"
+
+[content]
+notes = """
+# TODO
+1. Read READMEs + docs
+2. Generate Solidity Metrics report (right click on scope.txt -> Solidity: Metrics)
+2. Run `aderyn .`
+3. Run `slither .`
+
+# Question until it breaks
+- What's the purpose of the protocol?
+
+- What are the business core logics / high-level user stories?
+
+- What are the main components?
+                         
+- What are the actors and roles?
+
+- What are the assets/tokens involved?
+
+- What can go wrong?
+
+# Entry Points
+
+# Glossary
+
+# Resources
+
+# Commands
+
+"""
+
+findings = """
+# Title
+
+## Summary
+
+## Vulnerability Detail
+
+## Impact
+
+## Code Snippet
+
+## Tool used
+
+Manual Review
+
+## Recommendation
+
+
+
+------------------------------------------------------------
+
+# Title
+                            
+## Impact
+Detailed description of the impact of this finding.
+
+## Proof of Concept
+Provide direct links to all referenced code in GitHub. Add screenshots, logs, or any other relevant proof that illustrates the concept.
+
+## Tools Used
+
+## Recommended Mitigation Steps
+
+
+
+------------------------------------------------------------
+"""

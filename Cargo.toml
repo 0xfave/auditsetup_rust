@@ -1,0 +1,9 @@
+[package]
+name = "auditsetup_rust_v2"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+regex = "1.5"
+serde = { version = "1.0", features = ["derive"] }
+config = "0.13"

@@ -44,11 +44,11 @@ cargo build
 cargo run
 ```
 
-1. When prompted, paste the GitHub repository URL of the project you want to audit then press **ENTER**.
+5. When prompted, paste the GitHub repository URL of the project you want to audit then press **ENTER**.
 
-2. If a `scope.txt` file doesn't exist, you'll be prompted to input the files in scope. Copy/Paste the list of files in-scope, then PRESS ENTER **TWICE** to finish.
+6. If a `scope.txt` file doesn't exist, you'll be prompted to input the files in scope. Copy/Paste the list of files in-scope, then PRESS ENTER **TWICE** to finish.
 
-3. The tool will set up the audit environment and open relevant files in Visual Studio Code.
+7. The tool will set up the audit environment and open files in-scope in Visual Studio Code.
 
 ## Generated Structure
 

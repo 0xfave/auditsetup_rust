@@ -34,7 +34,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "auditsetup_rust_v2"
+name = "auditsetup_rust"
 version = "0.1.0"
 dependencies = [
  "config",

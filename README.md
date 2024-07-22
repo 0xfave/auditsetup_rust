@@ -21,9 +21,9 @@ This Rust-based tool automates the setup process for auditing GitHub repositorie
 
 ### Ensure you have these VSCode extensions installed:
 
-- https://marketplace.visualstudio.com/items?itemName=pomdtr.excalidraw-editor
 - https://marketplace.visualstudio.com/items?itemName=vquelque.markfiles
 - https://marketplace.visualstudio.com/items?itemName=tintinweb.solidity-visual-auditor
+- https://marketplace.visualstudio.com/items?itemName=pomdtr.excalidraw-editor (optional)
 
 ## Installation
 

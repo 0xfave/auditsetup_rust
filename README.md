@@ -9,9 +9,9 @@ This Rust-based tool automates the setup process for auditing GitHub repositorie
 - Clone GitHub repositories
 - Set up environment variables
 - Create an audit directory structure
-- Generate initial audit documentation files
-- Scan and list public/external functions from smart contracts
-- Open relevant files in Visual Studio Code
+- Generate NOTES.md, FINDINGS.md and DIAGRAMS.excalidraw template files
+- Scan and list entry points from files in-scope
+- Open files in-scope in Visual Studio Code and mark them 📌
 
 ## Prerequisites
 

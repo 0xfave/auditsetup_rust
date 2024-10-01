@@ -1,0 +1,7 @@
+# directories
+target/
+venv/
+
+# files
+**/*.rs.bk
+.envg

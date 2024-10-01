@@ -1,4 +1,4 @@
-base_dir = "/path/to/your/folder/to/git_clone_the_repos"
+base_dir = "/home/fave/work/audit"
 
 [env]
 eth_rpc_url = "https://eth-mainnet.g.alchemy.com/v2/YourAlchemyKey"
@@ -30,6 +30,13 @@ notes = """
 
 # Entry Points
 
+# Invariants
+| Description | Tested | Passed |
+|------------|--------|--------|
+| Invariant 1 | Yes | Yes |
+| Invariant 2 | No | No |
+
+
 # Glossary
 
 # Resources
@@ -39,6 +46,13 @@ notes = """
 """
 
 findings = """
+| Level | Impact |
+|-------|--------|
+| 4. Critical | - Manipulation of governance voting result deviating from voted outcome and resulting in a direct change from intended effect of original results<br>- Direct theft of any user funds, whether at-rest or in-motion, other than unclaimed yield<br>- Direct theft of any user NFTs, whether at-rest or in-motion, other than unclaimed royalties<br>- Permanent freezing of funds<br>- Permanent freezing of NFTs<br>- Unauthorized minting of NFTs<br>- Predictable or manipulable RNG that results in abuse of the principal or NFT<br>- Unintended alteration of what the NFT represents (e.g. token URI, payload, artistic content)<br>- Protocol insolvency |
+| 3. High | - Theft of unclaimed yield<br>- Theft of unclaimed royalties<br>- Permanent freezing of unclaimed yield<br>- Permanent freezing of unclaimed royalties<br>- Temporary freezing of funds<br>- Temporary freezing NFTs |
+| 2. Medium | - Smart contract unable to operate due to lack of token funds<br>- Block stuffing<br>- Griefing (e.g. no profit motive for an attacker, but damage to the users or the protocol)<br>- Theft of gas<br>- Unbounded gas consumption |
+| 1. Low | - Contract fails to deliver promised returns, but doesn't lose value |
+
 # Title
 
 ## Summary
@@ -75,3 +89,4 @@ Provide direct links to all referenced code in GitHub. Add screenshots, logs, or
 
 ------------------------------------------------------------
 """
+

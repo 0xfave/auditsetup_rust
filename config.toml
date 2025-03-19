@@ -48,9 +48,9 @@ notes = """
 findings = """
 | Level | Impact |
 |-------|--------|
-| 4. Critical | - Manipulation of governance voting result deviating from voted outcome and resulting in a direct change from intended effect of original results<br>- Direct theft of any user funds, whether at-rest or in-motion, other than unclaimed yield<br>- Direct theft of any user NFTs, whether at-rest or in-motion, other than unclaimed royalties<br>- Permanent freezing of funds<br>- Permanent freezing of NFTs<br>- Unauthorized minting of NFTs<br>- Predictable or manipulable RNG that results in abuse of the principal or NFT<br>- Unintended alteration of what the NFT represents (e.g. token URI, payload, artistic content)<br>- Protocol insolvency |
-| 3. High | - Theft of unclaimed yield<br>- Theft of unclaimed royalties<br>- Permanent freezing of unclaimed yield<br>- Permanent freezing of unclaimed royalties<br>- Temporary freezing of funds<br>- Temporary freezing NFTs |
-| 2. Medium | - Smart contract unable to operate due to lack of token funds<br>- Block stuffing<br>- Griefing (e.g. no profit motive for an attacker, but damage to the users or the protocol)<br>- Theft of gas<br>- Unbounded gas consumption |
+| 4. Critical | - Manipulation of governance voting result deviating from voted outcome and resulting in a direct change from intended effect of original results- Direct theft of any user funds, whether at-rest or in-motion, other than unclaimed yield- Direct theft of any user NFTs, whether at-rest or in-motion, other than unclaimed royalties- Permanent freezing of funds- Permanent freezing of NFTs- Unauthorized minting of NFTs- Predictable or manipulable RNG that results in abuse of the principal or NFT- Unintended alteration of what the NFT represents (e.g. token URI, payload, artistic content)- Protocol insolvency |
+| 3. High | - Theft of unclaimed yield- Theft of unclaimed royalties- Permanent freezing of unclaimed yield- Permanent freezing of unclaimed royalties- Temporary freezing of funds- Temporary freezing NFTs |
+| 2. Medium | - Smart contract unable to operate due to lack of token funds- Block stuffing- Griefing (e.g. no profit motive for an attacker, but damage to the users or the protocol)- Theft of gas- Unbounded gas consumption |
 | 1. Low | - Contract fails to deliver promised returns, but doesn't lose value |
 
 # Title
@@ -89,4 +89,63 @@ Provide direct links to all referenced code in GitHub. Add screenshots, logs, or
 
 ------------------------------------------------------------
 """
+llmrules = """
+DONOT EDIT THIS FILE
+OBJECTIVE
 
+I'm doing a security review and need to understand how the function I have referenced works in practice.
+
+GENERAL RULES
+
+- Wrap code references in backticks: functions, contracts, storage variables (e.g., lastUser)
+- If I respond "yes" to your questions, proceed with generating your response
+- Ignore any text wrapped in <...> as it's not yet filled
+- Format struct mappings as: mapping[key]: {field1: value1, field2: value2}
+
+USER FLOWS
+
+How would a user typically use this function or how would he interact with the overall system through this function? Give me an Alice Bob type of scenario. List 3 examples of how would someone use this function. Give clear values for every function parameter from your examples. Make sure examples have different usage, i.e. have different parameters at least.
+
+For each scenario, please provide:
+1. Initial context (user's goal)
+2. Exact function call with parameter values. If you mention any parameter or storage variable always assign it a concrete value.
+3. Step-by-step breakdown of what happens during execution.
+4. Storage variable changes (before → after), with variables in backticks. Show all storage changes across any contracts that are modified during the function execution, clearly indicating which contract each storage change belongs to.
+
+IMPORTANT FORMATTING:
+- Each scenario must be wrapped in its own code block (`...```) and use markdown to get basic highlighting
+- Within each code block, the scenario title must be prefixed with # (e.g., "# Scenario 1: ...")
+- Do not nest scenarios in a single code block
+
+Here is an example to understand the formatting as well:
+
+# Scenario 1: First-time Depositor
+CONTEXT
+Alice wants to deposit 1000 USDC into the Vault
+
+FUNCTION CALL
+deposit(
+amount: 1000,
+creditor: 0x1234... // Alice's address
+)
+
+EXECUTION FLOW
+1. Alice approves Vault to spend her USDC
+2. Function checks if the amount (1000) is between `minSupply` and `cap`
+3. USDC is transferred from Alice to Wrapper
+4. Wrapper mints wrapped tokens to Vault
+5. Vault creates a stake receipt for Alice
+
+STORAGE CHANGES
+`usdc.balanceOf[alice]`:  10000 -> 9000
+`usdc.balanceOf[stableWrapper]`:  0 -> 1000
+`stableWrapper.balanceOf[streamVault]`: 0 -> 1000
+`stableWrapper.totalSupply`:  0 -> 1000
+`streamVault.stakeReceipt[alice]`:  0 -> {roundId: 1, amount: 1000, unstakedAmount: 0}
+
+Assumption - <add any assumptions you might have>
+
+Tests - The test for this flow can be found in <Test file>
+
+Do you need any information from my side to provide so you understand the user flow?
+"""

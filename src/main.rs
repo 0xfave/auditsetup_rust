@@ -27,6 +27,7 @@ struct EnvSettings { // Define a struct to hold environment-specific settings
 struct ContentSettings { // Define a struct to hold content-related settings
     notes: String, // Field to store notes content
     findings: String, // Field to store findings content
+    llmrules: String, // Field to store llmrules content
 }
 
 fn load_config() -> Result<Settings, config::ConfigError> { // Function to load configuration from a file
@@ -79,6 +80,7 @@ fn main() -> io::Result<()> { // Main function that returns an IO Result
     fs::create_dir_all(&audit_dir)?; // Create the AUDIT directory and any necessary parent directories
     fs::write(audit_dir.join("NOTES.md"), &config.content.notes)?; // Write the NOTES.md file
     fs::write(audit_dir.join("FINDINGS.md"), &config.content.findings)?; // Write the FINDINGS.md file
+    fs::write(audit_dir.join("LLMRULES.md"), &config.content.llmrules)?; // Write the LLMRULES.md file
     File::create(audit_dir.join("DIAGRAMS.excalidraw"))?; // Create an empty DIAGRAMS.excalidraw file
 
     let scope_file = clone_path.join("scope.txt"); // Create a path for the scope.txt file

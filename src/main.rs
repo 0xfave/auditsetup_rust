@@ -123,8 +123,8 @@ fn main() -> io::Result<()> { // Main function that returns an IO Result
         }
     }
 
-    Command::new("code").arg(".").status()?; // Open the current directory in VS Code
-    Command::new("code").args(&scope_content).status()?; // Open the scope files in VS Code
+    Command::new("windsurf").arg(".").status()?; // Open the current directory in VS Code
+    Command::new("windsurf").args(&scope_content).status()?; // Open the scope files in VS Code
 
     Ok(()) // Return Ok to indicate successful execution
 }
